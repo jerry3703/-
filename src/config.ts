@@ -94,7 +94,7 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true, // 在主页显示自定义文本
-			title: "gemini3703", // 主页横幅主标题
+			title: "doraemon-blog", // 主页横幅主标题
 
 			subtitle: [
 				"删繁就简三秋树，领异标新二月花",
@@ -206,14 +206,14 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/jerry3703",
+					url: "https://github.com/Doraemon88888888",
 					external: true,
 					icon: "fa6-brands:github",
 				},
 				
 				{
 					name: "Gitee",
-					url: "https://gitee.com/huang-zifu",
+					url: "https://gitee.com/doraemon666666",
 					external: true,
 					icon: "mdi:git",
 				},
@@ -336,6 +336,12 @@ export const announcementConfig: AnnouncementConfig = {
 
 export const musicPlayerConfig: MusicPlayerConfig = {
 	enable: true, // 启用音乐播放器功能
+	mode: "meting", // 音乐播放器模式，可选 "local" 或 "meting"
+	meting_api:
+		"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 地址
+	id: "9421461483", // 歌单ID
+	server: "tencent", // 音乐源服务器。有的meting的api源支持更多平台,一般来说,netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
+	type: "playlist", // 播单类型
 };
 
 export const footerConfig: FooterConfig = {
