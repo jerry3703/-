@@ -3,7 +3,7 @@ title: 2026年寒假作业--政治（八下）
 published: 2026-02-13
 description: "《寒假作业政治填空八下》"
 tags: ["homework"]
-category: Diary
+category: Homework
 draft: false
 author: "Doraemon"
 pinned: true
