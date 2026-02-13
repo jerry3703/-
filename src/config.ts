@@ -93,7 +93,11 @@ export const siteConfig: SiteConfig = {
 			enable: false,
 			url: "http://domain.com/api_v2.php?format=text&count=4", // 返回每行一个图片链接的文本
 		},
-		// 主页文本配置
+		// 这里需要使用PicFlow API的Text返回类型,所以我们需要format=text参数
+		// 项目地址:https://github.com/matsuzaka-yuki/PicFlow-API
+		// 请自行搭建API
+
+
 		homeText: {
 			enable: true,
 			title: "doraemon-blog",
