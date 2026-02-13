@@ -2,11 +2,13 @@
 title: 2026年寒假作业--政治（九下）
 published: 2026-02-13
 description: "《寒假作业政治填空九下》"
-tags: ["diary"]
-category: Diary
+tags: ["homework"]
+category: Homework
 draft: false
 author: "Doraemon"
 pinned: true
+encrypted: true
+password: '29njcjzx'
 ---
 1. 当今世界是一个 <span style="color:red; background:yellow">开放</span>、发展、<span style="color:red; background:yellow">紧密联系</span> 的世界。
 2. 经济全球化的重要表现:商品 <span style="color:red; background:yellow">生产</span> 在全球范围内完成，商品 <span style="color:red; background:yellow">贸易</span> 在全球范围内进行。
