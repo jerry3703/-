@@ -219,14 +219,6 @@ export const navBarConfig: NavBarConfig = {
 				},
 			],
 		},
-		/*
-		{
-					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
-					external: true,
-					icon: "fa6-brands:bilibili",
-				},
-		*/
 		{
 			name: "My",
 			url: "/content/",
