@@ -2,11 +2,13 @@
 title: 2026年寒假作业--政治（八下）
 published: 2026-02-13
 description: "《寒假作业政治填空八下》"
-tags: ["diary"]
+tags: ["homework"]
 category: Diary
 draft: false
 author: "Doraemon"
 pinned: true
+encrypted: true
+password: '29njcjzx'
 ---
 1. <span style="color:red; background:yellow">中国共产党领导</span>是中国特色社会主义最本质的特征，是中国特色社会主义制度的最大优势。党的 <span style="color:red; background:yellow">宗旨</span> 是全心全意为人民服务。党的最高理想和最终目标是 <span style="color:red; background:yellow">实现共产主义</span>。
 2. 我国宪法是 <span style="color:red; background:yellow">党的主张</span> 和<span style="color:red; background:yellow">人民意志</span> 的统一；我国宪法是 <span style="color:red; background:yellow">党和人民意志</span> 的集中体现，是国家的<span style="color:red; background:yellow">根本</span>法。
