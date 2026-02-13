@@ -17,13 +17,7 @@ import { LinkPreset } from "./types/config";
 import { getTranslateLanguageFromConfig } from "./utils/language-utils";
 
 // ========================= 基础配置常量 =========================
-// 站点核心配置常量，便于统一维护
 const SITE_LANG = "zh_CN"; // 语言代码：'en', 'zh_CN', 'ja' 等
-const BANNER_IMAGE_BASE_PATH = {
-	desktop: "/assets/desktop-banner/",
-	mobile: "/assets/mobile-banner/"
-};
-const BANNER_IMAGE_SUFFIX = Array.from({ length: 8 }, (_, i) => `${i + 1}.webp`);
 
 // ========================= 站点核心配置 =========================
 export const siteConfig: SiteConfig = {
@@ -53,50 +47,49 @@ export const siteConfig: SiteConfig = {
 		userId: "your-bangumi-id", // 替换为实际Bangumi ID，测试值："sai"
 	},
 
+	// 横幅(Banner)配置 - 完整正确结构
 	banner: {
-	enable: true, // 是否启动Banner壁纸模式
+		enable: true, // 是否启动Banner壁纸模式
 
-	// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
-	src: {
-		desktop: [
-			"/assets/desktop-banner/d1.webp",
-			"/assets/desktop-banner/d2.webp",
-			"/assets/desktop-banner/d3.webp",
-			"/assets/desktop-banner/d4.webp",
-			"/assets/desktop-banner/d5.webp",
-			"/assets/desktop-banner/d6.webp",
-			"/assets/desktop-banner/d7.webp",
-			"/assets/desktop-banner/d8.webp",
-		], // 桌面横幅图片
-		mobile: [
-			"/assets/mobile-banner/m1.webp",
-			"/assets/mobile-banner/m2.webp",
-			"/assets/mobile-banner/m3.webp",
-			"/assets/mobile-banner/m4.webp",
-			"/assets/mobile-banner/m5.webp",
-			"/assets/mobile-banner/m6.webp",
-			"/assets/mobile-banner/m7.webp",
-			"/assets/mobile-banner/m8.webp",
-		], // 移动横幅图片
-	}, // 使用本地横幅图片
+		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
+		src: {
+			desktop: [
+				"/assets/desktop-banner/d1.webp",
+				"/assets/desktop-banner/d2.webp",
+				"/assets/desktop-banner/d3.webp",
+				"/assets/desktop-banner/d4.webp",
+				"/assets/desktop-banner/d5.webp",
+				"/assets/desktop-banner/d6.webp",
+				"/assets/desktop-banner/d7.webp",
+				"/assets/desktop-banner/d8.webp",
+			], // 桌面横幅图片
+			mobile: [
+				"/assets/mobile-banner/m1.webp",
+				"/assets/mobile-banner/m2.webp",
+				"/assets/mobile-banner/m3.webp",
+				"/assets/mobile-banner/m4.webp",
+				"/assets/mobile-banner/m5.webp",
+				"/assets/mobile-banner/m6.webp",
+				"/assets/mobile-banner/m7.webp",
+				"/assets/mobile-banner/m8.webp",
+			], // 移动横幅图片
+		}, // 使用本地横幅图片
 
-	position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
+		position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
 
-	carousel: {
-		enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
-
-		interval: 1.5, // 轮播间隔时间（秒）
-	},
+		carousel: {
+			enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
+			interval: 1.5, // 轮播间隔时间（秒）
 		},
+
 		// PicFlow API配置（智能图片API）
 		imageApi: {
-			enable: false,
-			url: "http://domain.com/api_v2.php?format=text&count=4", // 返回每行一个图片链接的文本
+			enable: false, // 启用图片API
+			url: "http://domain.com/api_v2.php?format=text&count=4", // API地址，返回每行一个图片链接的文本
 		},
 		// 这里需要使用PicFlow API的Text返回类型,所以我们需要format=text参数
 		// 项目地址:https://github.com/matsuzaka-yuki/PicFlow-API
 		// 请自行搭建API
-
 
 		homeText: {
 			enable: true,
@@ -127,17 +120,19 @@ export const siteConfig: SiteConfig = {
 				pauseTime: 2000, // 显示完成后暂停时间(毫秒)
 			},
 		},
+
 		// 图片来源标注
 		credit: {
 			enable: false,
 			text: "Describe",
 			url: "",
 		},
+
 		// 导航栏透明模式
 		navbar: {
 			transparentMode: "semifull", // semi(半透明)/full(全透明)/semifull(动态透明)
 		},
-	},
+	}, // banner 配置块正确闭合
 
 	// 目录配置
 	toc: {
@@ -166,8 +161,26 @@ export const siteConfig: SiteConfig = {
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	enable: true, // 非Banner模式下生效
 	src: {
-		desktop: BANNER_IMAGE_SUFFIX.map(item => BANNER_IMAGE_BASE_PATH.desktop + item),
-		mobile: BANNER_IMAGE_SUFFIX.map(item => BANNER_IMAGE_BASE_PATH.mobile + item),
+		desktop: [
+			"/assets/desktop-banner/d1.webp",
+			"/assets/desktop-banner/d2.webp",
+			"/assets/desktop-banner/d3.webp",
+			"/assets/desktop-banner/d4.webp",
+			"/assets/desktop-banner/d5.webp",
+			"/assets/desktop-banner/d6.webp",
+			"/assets/desktop-banner/d7.webp",
+			"/assets/desktop-banner/d8.webp",
+		],
+		mobile: [
+			"/assets/mobile-banner/m1.webp",
+			"/assets/mobile-banner/m2.webp",
+			"/assets/mobile-banner/m3.webp",
+			"/assets/mobile-banner/m4.webp",
+			"/assets/mobile-banner/m5.webp",
+			"/assets/mobile-banner/m6.webp",
+			"/assets/mobile-banner/m7.webp",
+			"/assets/mobile-banner/m8.webp",
+		],
 	},
 	position: "center",
 	carousel: {
