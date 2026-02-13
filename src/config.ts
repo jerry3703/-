@@ -497,7 +497,7 @@ export const widgetConfigs = {
 } as const;
 
 export const umamiConfig = {
-  enabled: false, // 是否启用 Umami 统计
+  enabled: true, // 是否启用 Umami 统计
   apiKey: "api_RqahFxX9rYeysF4Oaq6eHKhgH3YavV90", // 你的 API 密钥
   baseUrl: "https://api.eu.umami.is", // Umami Cloud API 地址
   scripts: `
