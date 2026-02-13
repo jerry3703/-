@@ -2,11 +2,13 @@
 title: 2026年寒假作业--政治（九上）
 published: 2026-02-13
 description: "《寒假作业政治填空九上》"
-tags: ["diary"]
+tags: ["homework"]
 category: Diary
 draft: false
 author: "Doraemon"
 pinned: true
+encrypted: true
+password: '29njcjzx'
 ---
 1. 当代中国最鲜明的特色是 <span style="color:red; background:yellow">改革开放</span>；党和政府坚持 <span style="color:red; background:yellow">以人民为中心</span> 的发展思想；党的奋斗目标是 <span style="color:red; background:yellow">人民对美好生活的向往</span>；发展的根本目的是 <span style="color:red; background:yellow">增进民生福祉</span>。
 2. <span style="color:red; background:yellow">1978</span> 年，党的 <span style="color:red; background:yellow">十一届三中全会</span> 开启了改革开放的历史征程。
