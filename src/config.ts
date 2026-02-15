@@ -417,7 +417,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 
 // ========================= 樱花特效配置 =========================
 export const sakuraConfig: SakuraConfig = {
-	enable: false,
+	enable: true,
 	sakuraNum: 7,
 	limitTimes: -1, // -1为无限循环
 	size: {
