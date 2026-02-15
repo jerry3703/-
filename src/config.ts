@@ -20,7 +20,7 @@ import { getTranslateLanguageFromConfig } from "./utils/language-utils";
 const SITE_LANG = "zh_CN"; // 语言代码：'en', 'zh_CN', 'ja' 等
 
 // ========================= 站点核心配置 =========================
-export const siteConfig: SiteConfig = {
+const siteConfig: SiteConfig = {
 	title: "gemini",
 	subtitle: "",
 	lang: SITE_LANG,
@@ -47,11 +47,11 @@ export const siteConfig: SiteConfig = {
 		userId: "your-bangumi-id", // 替换为实际Bangumi ID，测试值："sai"
 	},
 
-	// 横幅(Banner)配置 - 完整正确结构（无多余闭合括号）
+	// 横幅(Banner)配置 - 完整正确结构
 	banner: {
 		enable: true, // 是否启动Banner壁纸模式
 
-		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
+		// 支持单张图片或图片数组，数组长度>1时自动轮播
 		src: {
 			desktop: [
 				"/assets/desktop-banner/d1.webp",
@@ -62,7 +62,7 @@ export const siteConfig: SiteConfig = {
 				"/assets/desktop-banner/d6.webp",
 				"/assets/desktop-banner/d7.webp",
 				"/assets/desktop-banner/d8.webp",
-			], // 桌面横幅图片
+			],
 			mobile: [
 				"/assets/mobile-banner/m1.webp",
 				"/assets/mobile-banner/m2.webp",
@@ -72,20 +72,19 @@ export const siteConfig: SiteConfig = {
 				"/assets/mobile-banner/m6.webp",
 				"/assets/mobile-banner/m7.webp",
 				"/assets/mobile-banner/m8.webp",
-			], // 移动横幅图片
-		}, // 使用本地横幅图片
-
-		position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
-
-		carousel: {
-			enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
-			interval: 1.5, // 轮播间隔时间（秒）
+			],
 		},
 
-		// PicFlow API配置（智能图片API）
+		position: "center", // 仅支持 'top', 'center', 'bottom'
+		carousel: {
+			enable: true,
+			interval: 1.5, // 轮播间隔（秒）
+		},
+
+		// PicFlow API配置
 		imageApi: {
-			enable: false, // 启用图片API
-			url: "http://domain.com/api_v2.php?format=text&count=4", // API地址，返回每行一个图片链接的文本
+			enable: false,
+			url: "http://domain.com/api_v2.php?format=text&count=4",
 		},
 
 		homeText: {
@@ -111,10 +110,10 @@ export const siteConfig: SiteConfig = {
 				"寻光归去，天启而回",
 			],
 			typewriter: {
-				enable: true, // 打字机效果
-				speed: 100, // 打字速度(毫秒)
-				deleteSpeed: 50, // 删除速度(毫秒)
-				pauseTime: 2000, // 显示完成后暂停时间(毫秒)
+				enable: true,
+				speed: 100,
+				deleteSpeed: 50,
+				pauseTime: 2000,
 			},
 		},
 
@@ -127,36 +126,36 @@ export const siteConfig: SiteConfig = {
 
 		// 导航栏透明模式
 		navbar: {
-			transparentMode: "semifull", // semi(半透明)/full(全透明)/semifull(动态透明)
+			transparentMode: "semifull",
 		},
-	}, // banner 配置块正确闭合
+	},
 
 	// 目录配置
 	toc: {
 		enable: true,
-		depth: 3, // 目录深度(1-6)
+		depth: 3,
 	},
 
-	// OpenGraph图片生成（调试时建议关闭）
+	// OpenGraph图片生成（调试时关闭）
 	generateOgImages: false,
 
 	// 网站图标
-	favicon: [], // 留空使用默认favicon
+	favicon: [],
 
 	// 字体配置
 	font: {
 		zenMaruGothic: {
-			enable: false, // 圆体（适配日/英语，中文一般）
+			enable: false,
 		},
 		hanalei: {
-			enable: true, // Hanalei字体（适配中文）
+			enable: true,
 		},
 	},
-}; // siteConfig 对象正确闭合
+};
 
 // ========================= 全屏壁纸配置 =========================
-export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
-	enable: true, // 非Banner模式下生效
+const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
+	enable: true,
 	src: {
 		desktop: [
 			"/assets/desktop-banner/d1.webp",
@@ -182,15 +181,15 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	position: "center",
 	carousel: {
 		enable: true,
-		interval: 1, // 轮播间隔(秒)
+		interval: 1,
 	},
-	zIndex: -1, // 确保在背景层
-	opacity: 0.8, // 透明度
-	blur: 1, // 模糊程度
+	zIndex: -1,
+	opacity: 0.8,
+	blur: 1,
 };
 
 // ========================= 导航栏配置 =========================
-export const navBarConfig: NavBarConfig = {
+const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
@@ -214,7 +213,7 @@ export const navBarConfig: NavBarConfig = {
 				},
 			],
 		},
-		// 自定义链接 - My（已删除追剧和日记选项）
+		// 自定义链接 - My
 		{
 			name: "My",
 			url: "/content/",
@@ -227,7 +226,7 @@ export const navBarConfig: NavBarConfig = {
 				},
 			],
 		},
-		// 自定义链接 - About（修改了关于我们和友链配置）
+		// 自定义链接 - About
 		{
 			name: "About",
 			url: "/content/",
@@ -273,18 +272,18 @@ export const navBarConfig: NavBarConfig = {
 };
 
 // ========================= 个人资料配置 =========================
-export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.png", // /src 相对路径 | /public 绝对路径
+const profileConfig: ProfileConfig = {
+	avatar: "assets/images/avatar.png",
 	name: "The Great Hall of the People",
 	bio: `Standing majestically on the western side of Tian’anmen Square in the heart of Beijing, the Great Hall of the People is an iconic landmark and the core venue for China’s national political activities, and was among the top ten monumental buildings constructed to celebrate the 10th anniversary of the founding of the People’s Republic of China. 
 Construction started in 1958 and was completed in a remarkable 10 months, opening in 1959. It covers a total floor area of 171,800 square meters, with a grand east-facing facade featuring 12 towering light-gray marble columns (25 meters high) and an imposing national emblem above the main entrance. The architectural layout is mountain-shaped, with a higher central section and lower wings, presenting a solemn and magnificent style that blends modern grandeur with traditional Chinese architectural elements. 
 The interior houses numerous functional spaces. The Main Auditorium (capable of seating 10,000 people) is the venue for the annual sessions of the National People’s Congress (NPC) and the National Committee of the Chinese People’s Political Consultative Conference (CPPCC), known as the “Two Sessions”. The Banquet Hall in the north wing can accommodate 5,000 guests for state banquets. Additionally, there are 34 provincial and regional halls, each decorated with unique local cultural characteristics, and the Golden Hall, a renowned venue for high-profile press conferences and diplomatic events.
 Over the decades, it has witnessed countless historic moments: the adoption of major national laws, important diplomatic meetings with foreign leaders, grand national celebrations, and various cultural events. When there are no major official events, parts of the hall are open to the public, allowing visitors to admire its magnificent architecture and experience the charm of China’s political and cultural center.`,
-	links: [], // 暂时隐藏社交链接
+	links: [],
 };
 
-// ========================= 关于我们 自我介绍配置（新增）=========================
-export const aboutConfig = {
+// ========================= 关于我们配置 =========================
+const aboutConfig = {
 	title: "关于我",
 	content: `
     你好呀！我是一名热爱技术与生活的开发者，也是这个小博客的主人。
@@ -301,19 +300,19 @@ export const aboutConfig = {
 };
 
 // ========================= 许可证配置 =========================
-export const licenseConfig: LicenseConfig = {
+const licenseConfig: LicenseConfig = {
 	enable: true,
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
 // ========================= 代码样式配置 =========================
-export const expressiveCodeConfig: ExpressiveCodeConfig = {
-	theme: "github-dark", // 仅支持深色主题（博客主题适配）
+const expressiveCodeConfig: ExpressiveCodeConfig = {
+	theme: "github-dark",
 };
 
 // ========================= 评论配置 =========================
-export const commentConfig: CommentConfig = {
+const commentConfig: CommentConfig = {
 	enable: true,
 	twikoo: {
 		envId: "https://doraemon-blog.netlify.app/",
@@ -322,7 +321,7 @@ export const commentConfig: CommentConfig = {
 };
 
 // ========================= 公告配置 =========================
-export const announcementConfig: AnnouncementConfig = {
+const announcementConfig: AnnouncementConfig = {
 	title: "你好呀",
 	content: "欢迎回来",
 	closable: false,
@@ -335,23 +334,23 @@ export const announcementConfig: AnnouncementConfig = {
 };
 
 // ========================= 音乐播放器配置 =========================
-export const musicPlayerConfig: MusicPlayerConfig = {
+const musicPlayerConfig: MusicPlayerConfig = {
 	enable: true,
-	mode: "meting", // local / meting
+	mode: "meting",
 	meting_api:
 		"https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r",
-	id: "9608554864", // 歌单ID
-	server: "tencent", // netease/tencent/kugou/xiami/baidu
+	id: "9608554864",
+	server: "tencent",
 	type: "playlist",
 };
 
 // ========================= 页脚配置 =========================
-export const footerConfig: FooterConfig = {
-	enable: false, // 启用后编辑 FooterConfig.html 添加备案号等内容
+const footerConfig: FooterConfig = {
+	enable: false,
 };
 
 // ========================= 侧边栏布局配置 =========================
-export const sidebarLayoutConfig: SidebarLayoutConfig = {
+const sidebarLayoutConfig: SidebarLayoutConfig = {
 	enable: true,
 	position: "left",
 	components: [
@@ -379,7 +378,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			class: "onload-animation",
 			animationDelay: 150,
 			responsive: {
-				collapseThreshold: 5, // 分类数超5个自动折叠
+				collapseThreshold: 5,
 			},
 		},
 		{
@@ -390,7 +389,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			class: "onload-animation",
 			animationDelay: 200,
 			responsive: {
-				collapseThreshold: 20, // 标签数超20个自动折叠
+				collapseThreshold: 20,
 			},
 		},
 	],
@@ -414,10 +413,10 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 };
 
 // ========================= 樱花特效配置 =========================
-export const sakuraConfig: SakuraConfig = {
+const sakuraConfig: SakuraConfig = {
 	enable: true,
 	sakuraNum: 7,
-	limitTimes: -1, // -1为无限循环
+	limitTimes: -1,
 	size: {
 		min: 0.5,
 		max: 1.1,
@@ -436,15 +435,15 @@ export const sakuraConfig: SakuraConfig = {
 	zIndex: 100,
 };
 
-// ========================= Pio 插件配置（核心修复）=========================
-export const pioConfig: PioConfig = {
-	enable: false, // 是否启用 Pio 插件
-	apiKey: "", // Pio 插件所需 API Key
-	apiUrl: "", // Pio 插件接口地址
+// ========================= Pio 插件配置 =========================
+const pioConfig: PioConfig = {
+	enable: false,
+	apiKey: "",
+	apiUrl: "",
 };
 
 // ========================= Umami 统计配置 =========================
-export const umamiConfig = {
+const umamiConfig = {
 	enabled: true,
 	apiKey: "api_RqahFxX9rYeysF4Oaq6eHKhgH3YavV90",
 	baseUrl: "https://api.eu.umami.is",
@@ -453,23 +452,24 @@ export const umamiConfig = {
   `.trim(),
 } as const;
 
-// ========================= 统一配置导出 =========================
-export const widgetConfigs = {
+// ========================= 统一配置聚合 =========================
+const widgetConfigs = {
 	profile: profileConfig,
 	announcement: announcementConfig,
 	music: musicPlayerConfig,
 	layout: sidebarLayoutConfig,
 	sakura: sakuraConfig,
 	fullscreenWallpaper: fullscreenWallpaperConfig,
-	pio: pioConfig, // 新增 Pio 配置导出
+	pio: pioConfig,
 } as const;
 
-// 全量配置导出（包含 pioConfig）
+// ========================= 唯一导出入口（彻底解决重复导出）=========================
 export {
 	siteConfig,
 	fullscreenWallpaperConfig,
 	navBarConfig,
 	profileConfig,
+	aboutConfig,
 	licenseConfig,
 	expressiveCodeConfig,
 	commentConfig,
