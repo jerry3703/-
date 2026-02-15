@@ -241,7 +241,7 @@ const navBarConfig: NavBarConfig = {
 					name: "友链",
 					url: "https://lightseeking.eu.org/",
 					external: true,
-					icon: "material-symbols:link-outline",
+					icon: "material-symbols:link",
 				},
 			],
 		},
