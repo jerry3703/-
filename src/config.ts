@@ -217,14 +217,12 @@ export const navBarConfig: NavBarConfig = {
 				},
 			],
 		},
-		// 自定义链接 - My
+		// 自定义链接 - My（已删除追剧和日记选项）
 		{
 			name: "My",
 			url: "/content/",
 			icon: "material-symbols:person",
 			children: [
-				LinkPreset.Anime,
-				LinkPreset.Diary,
 				{
 					name: "Gallery",
 					url: "/albums/",
@@ -232,12 +230,24 @@ export const navBarConfig: NavBarConfig = {
 				},
 			],
 		},
-		// 自定义链接 - About
+		// 自定义链接 - About（修改了关于我们和友链配置）
 		{
 			name: "About",
 			url: "/content/",
 			icon: "material-symbols:info",
-			children: [LinkPreset.About, LinkPreset.Friends],
+			children: [
+				{
+					name: "关于我们",
+					url: "/about/",
+					icon: "material-symbols:person-outline",
+				},
+				{
+					name: "友链",
+					url: "https://lightseeking.eu.org/",
+					external: true,
+					icon: "material-symbols:link-outline",
+				}
+			],
 		},
 		// 自定义链接 - Others
 		{
@@ -274,6 +284,23 @@ Construction started in 1958 and was completed in a remarkable 10 months, openin
 The interior houses numerous functional spaces. The Main Auditorium (capable of seating 10,000 people) is the venue for the annual sessions of the National People’s Congress (NPC) and the National Committee of the Chinese People’s Political Consultative Conference (CPPCC), known as the “Two Sessions”. The Banquet Hall in the north wing can accommodate 5,000 guests for state banquets. Additionally, there are 34 provincial and regional halls, each decorated with unique local cultural characteristics, and the Golden Hall, a renowned venue for high-profile press conferences and diplomatic events.
 Over the decades, it has witnessed countless historic moments: the adoption of major national laws, important diplomatic meetings with foreign leaders, grand national celebrations, and various cultural events. When there are no major official events, parts of the hall are open to the public, allowing visitors to admire its magnificent architecture and experience the charm of China’s political and cultural center.`,
 	links: [], // 暂时隐藏社交链接
+};
+
+// ========================= 关于我们 自我介绍配置（新增）=========================
+export const aboutConfig = {
+  title: "关于我",
+  content: `
+    你好呀！我是一名热爱技术与生活的开发者，也是这个小博客的主人。
+    平日里喜欢捣鼓前端技术、搭建个人网站，也热衷于记录生活中的点滴感悟与技术成长。
+    这个博客是我分享所学、所思、所感的小天地，内容涵盖前端开发、工具使用、生活随笔等。
+    希望在这里能和志同道合的朋友交流学习，也愿我的分享能给你带来一点启发。
+    如果你有任何想法或建议，欢迎随时交流～
+  `,
+  contact: {
+    enable: true,
+    email: "your-email@example.com",
+    github: "https://github.com/Doraemon88888888"
+  }
 };
 
 // ========================= 许可证配置 =========================
@@ -315,7 +342,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	enable: true,
 	mode: "meting", // local / meting
 	meting_api: "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r",
-	id: "9421461483", // 歌单ID
+	id: "9608554864", // 歌单ID
 	server: "tencent", // netease/tencent/kugou/xiami/baidu
 	type: "playlist",
 };
@@ -411,30 +438,6 @@ export const sakuraConfig: SakuraConfig = {
 	zIndex: 100,
 };
 
-// ========================= 看板娘配置 =========================
-export const pioConfig: PioConfig = {
-	enable: false,
-	models: ["/pio/models/pio/model.json"],
-	position: "left",
-	width: 280,
-	height: 250,
-	mode: "draggable",
-	hiddenOnMobile: true,
-	dialog: {
-		welcome: "Welcome to Mizuki Website!",
-		touch: [
-			"What are you doing?",
-			"Stop touching me!",
-			"HENTAI!",
-			"Don't bully me like that!",
-		],
-		home: "Click here to go back to homepage!",
-		skin: ["Want to see my new outfit?", "The new outfit looks great~"],
-		close: "QWQ See you next time~",
-		link: "https://github.com/matsuzaka-yuki/Mizuki",
-	},
-};
-
 // ========================= Umami 统计配置 =========================
 // 保留原有API Key不做修改
 export const umamiConfig = {
@@ -454,5 +457,4 @@ export const widgetConfigs = {
 	layout: sidebarLayoutConfig,
 	sakura: sakuraConfig,
 	fullscreenWallpaper: fullscreenWallpaperConfig,
-	// pio: pioConfig, // 注释保持原有状态
 } as const;
