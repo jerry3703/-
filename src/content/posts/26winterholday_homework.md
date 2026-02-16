@@ -2,8 +2,8 @@
 title: 2026年寒假作业
 published: 2026-02-04
 description: "《快乐寒假》"
-tags: ["diary"]
-category: Diary
+tags: ["homework"]
+category: Homenwork
 draft: false
 author: "黄子郬"
 pinned: true
