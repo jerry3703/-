@@ -41,13 +41,13 @@ export function navigateToPage(
 	}
 
 	// 检查 Swup 是否可用
-	if (typeof window !== "undefined" && (window as any).swup) {
+	if (typeof window !== "undefined" && (window as { swup?: { navigate?: (url: string, options?: unknown) => void } }).swup) {
 		try {
 			// 使用 Swup 进行无刷新跳转
 			if (options?.replace) {
-				(window as any).swup.navigate(url, { history: false });
+				(window as { swup?: { navigate?: (url: string, options?: unknown) => void } }).swup?.navigate(url, { history: false });
 			} else {
-				(window as any).swup.navigate(url);
+				(window as { swup?: { navigate?: (url: string, options?: unknown) => void } }).swup?.navigate(url);
 			}
 		} catch (error) {
 			console.error("Swup navigation failed:", error);
@@ -89,7 +89,7 @@ export function isSwupReady(): boolean {
  * 等待 Swup 准备就绪
  * @param timeout 超时时间（毫秒）
  */
-export function waitForSwup(timeout: number = 5000): Promise<boolean> {
+export function waitForSwup(timeout = 5000): Promise<boolean> {
 	return new Promise((resolve) => {
 		if (isSwupReady()) {
 			resolve(true);

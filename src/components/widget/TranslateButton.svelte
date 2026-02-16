@@ -42,8 +42,7 @@ async function changeLanguage(languageCode: string) {
 		}
 
 		if (
-			typeof window.translate !== "undefined" &&
-			window.translate.language &&
+			window.translate?.language &&
 			typeof window.translate.language.getLocal === "function"
 		) {
 			// 检查是否选择的是简体中文，且当前本地语言也是简体中文

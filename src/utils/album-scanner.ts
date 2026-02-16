@@ -44,7 +44,7 @@ async function processAlbumFolder(
 
 	// 读取相册信息
 	const infoContent = fs.readFileSync(infoPath, "utf-8");
-	let info: Record<string, any>;
+	let info: Record<string, unknown>;
 	try {
 		info = JSON.parse(infoContent);
 	} catch (e) {
@@ -144,30 +144,43 @@ function scanPhotos(folderPath: string, albumId: string): Photo[] {
 }
 
 function processExternalPhotos(
-	externalPhotos: any[],
+	externalPhotos: unknown[],
 	albumId: string,
 ): Photo[] {
 	const photos: Photo[] = [];
 
 	externalPhotos.forEach((photo, index) => {
-		if (!photo.src) {
+		if (!(photo as Record<string, unknown>).src) {
 			console.warn(`相册 ${albumId} 的第 ${index + 1} 张照片缺少 src 字段`);
 			return;
 		}
 
 		photos.push({
-			id: photo.id || `${albumId}-external-photo-${index}`,
-			src: photo.src,
-			thumbnail: photo.thumbnail,
-			alt: photo.alt || photo.title || `Photo ${index + 1}`,
-			title: photo.title,
-			description: photo.description,
-			tags: photo.tags || [],
-			date: photo.date || new Date().toISOString().split("T")[0],
-			location: photo.location,
-			width: photo.width,
-			height: photo.height,
-			camera: photo.camera,
+			id:
+				(photo as Record<string, unknown>).id ||
+				`${albumId}-external-photo-${index}`,
+			src: (photo as Record<string, unknown>).src as string,
+			thumbnail: (photo as Record<string, unknown>).thumbnail as
+				| string
+				| undefined,
+			alt:
+				((photo as Record<string, unknown>).alt as string) ||
+				((photo as Record<string, unknown>).title as string) ||
+				`Photo ${index + 1}`,
+			title: (photo as Record<string, unknown>).title as string | undefined,
+			description: (photo as Record<string, unknown>).description as
+				| string
+				| undefined,
+			tags: ((photo as Record<string, unknown>).tags as string[]) || [],
+			date:
+				((photo as Record<string, unknown>).date as string) ||
+				new Date().toISOString().split("T")[0],
+			location: (photo as Record<string, unknown>).location as
+				| string
+				| undefined,
+			width: (photo as Record<string, unknown>).width as number | undefined,
+			height: (photo as Record<string, unknown>).height as number | undefined,
+			camera: (photo as Record<string, unknown>).camera as string | undefined,
 			lens: photo.lens,
 			settings: photo.settings,
 		});

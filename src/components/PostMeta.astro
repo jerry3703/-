@@ -1,55 +1,54 @@
 ---
 import { Icon } from "astro-icon/components";
 import { profileConfig } from "../config";
+import { umamiConfig } from "../config.ts";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import { formatDateToYYYYMMDD } from "../utils/date-utils";
 import { getCategoryUrl, getTagUrl } from "../utils/url-utils";
 
-import { umamiConfig } from '../config.ts';
-
 // 解析 umami
-const umamiEnabled  = umamiConfig.enabled || false;
+const umamiEnabled = umamiConfig.enabled || false;
 const umamiShareURL = umamiConfig.shareURL || "";
 let umamiBaseUrl = "";
 let umamiShareId = "";
 if (umamiShareURL) {
-    try {
-        const u = new URL(umamiShareURL);
-        umamiBaseUrl = `${u.protocol}//${u.host}`;
-        const segments = u.pathname.split('/').filter(Boolean);
-        if (segments[0] === 'share' && segments.length >= 2) {
-            umamiShareId = segments[1];
-        } else {
-            umamiShareId = segments.pop() || '';
-        }
-    } catch {
-        console.warn('Invalid Umami shareURL', e);
-    }
+	try {
+		const u = new URL(umamiShareURL);
+		umamiBaseUrl = `${u.protocol}//${u.host}`;
+		const segments = u.pathname.split("/").filter(Boolean);
+		if (segments[0] === "share" && segments.length >= 2) {
+			umamiShareId = segments[1];
+		} else {
+			umamiShareId = segments.pop() || "";
+		}
+	} catch {
+		console.warn("Invalid Umami shareURL", e);
+	}
 }
 
 export interface Props {
-  published: Date;
-  updated?: Date;
-  category?: string;
-  tags?: string[];
-  hideUpdateDate?: boolean;
-  hideTagsForMobile?: boolean;
-  isHome?: boolean;
-  className?: string;
-  slug?: string;
+	published: Date;
+	updated?: Date;
+	category?: string;
+	tags?: string[];
+	hideUpdateDate?: boolean;
+	hideTagsForMobile?: boolean;
+	isHome?: boolean;
+	className?: string;
+	slug?: string;
 }
 
 const {
-  published,
-  updated,
-  category,
-  tags,
-  hideUpdateDate,
-  hideTagsForMobile,
-  isHome,
-  className = "",
-  slug
+	published,
+	updated,
+	category,
+	tags,
+	hideUpdateDate,
+	hideTagsForMobile,
+	isHome,
+	className = "",
+	slug,
 } = Astro.props;
 ---
 

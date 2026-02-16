@@ -7,7 +7,7 @@ declare global {
 
 	interface Window {
 		// Define swup type directly since @swup/astro doesn't export AstroIntegration
-		swup: any;
+		swup: unknown;
 		pagefind: {
 			search: (query: string) => Promise<{
 				results: Array<{

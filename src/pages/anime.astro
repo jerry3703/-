@@ -1,11 +1,10 @@
 ---
 import ImageWrapper from "../components/misc/ImageWrapper.astro";
-import { siteConfig } from "../config";
+import { siteConfig, siteConfig } from "../config";
 import localAnimeList from "../data/anime";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
-import { siteConfig } from "../config";
 
 // Bangumi API配置
 const BANGUMI_USER_ID = siteConfig.bangumi?.userId || "your-user-id"; // 用户ID
@@ -35,7 +34,7 @@ async function fetchBangumiCollection(
 	type: number,
 ) {
 	try {
-		let allData: any[] = [];
+		let allData: unknown[] = [];
 		let offset = 0;
 		const limit = 50; // 每页获取的数量
 		let hasMore = true;
@@ -70,12 +69,12 @@ async function fetchBangumiCollection(
 }
 
 // 获取Bangumi数据转换为页面所需格式
-async function processBangumiData(data: any, status: string) {
-	if (!data || !data.data) return [];
+async function processBangumiData(data: unknown, status: string) {
+	if (!data || !(data as Record<string, unknown>).data) return [];
 
 	// 为每个条目获取详细信息
 	const detailedItems = await Promise.all(
-		data.data.map(async (item: any) => {
+		((data as Record<string, unknown>).data as unknown[]).map(async (item: unknown) => {
 			// 获取相关人员信息
 			const subjectPersons = await fetchSubjectPersons(item.subject_id);
 			// 获取年份信息

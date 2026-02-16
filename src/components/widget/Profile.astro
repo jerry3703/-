@@ -1,29 +1,28 @@
 ---
 import { Icon } from "astro-icon/components";
 import { profileConfig } from "../../config";
+import { umamiConfig } from "../../config.ts";
 import { url } from "../../utils/url-utils";
 import ImageWrapper from "../misc/ImageWrapper.astro";
 
-import { umamiConfig } from '../../config.ts';
-
 // 解析 umami
-const umamiEnabled  = umamiConfig.enabled || false;
+const umamiEnabled = umamiConfig.enabled || false;
 const umamiShareURL = umamiConfig.shareURL || "";
 let umamiBaseUrl = "";
 let umamiShareId = "";
 if (umamiShareURL) {
-    try {
-        const u = new URL(umamiShareURL);
-        umamiBaseUrl = `${u.protocol}//${u.host}`;
-        const segments = u.pathname.split('/').filter(Boolean);
-        if (segments[0] === 'share' && segments.length >= 2) {
-            umamiShareId = segments[1];
-        } else {
-            umamiShareId = segments.pop() || '';
-        }
-    } catch {
-        console.warn("Invalid Umami shareURL");
-    }
+	try {
+		const u = new URL(umamiShareURL);
+		umamiBaseUrl = `${u.protocol}//${u.host}`;
+		const segments = u.pathname.split("/").filter(Boolean);
+		if (segments[0] === "share" && segments.length >= 2) {
+			umamiShareId = segments[1];
+		} else {
+			umamiShareId = segments.pop() || "";
+		}
+	} catch {
+		console.warn("Invalid Umami shareURL");
+	}
 }
 ---
 

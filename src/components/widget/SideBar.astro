@@ -1,12 +1,12 @@
 ---
 import type { MarkdownHeading } from "astro";
 import { widgetManager } from "../../utils/widget-manager";
-import Profile from "./Profile.astro";
 import Announcement from "./Announcement.astro";
 import Categories from "./Categories.astro";
+import MusicPlayer from "./MusicPlayer.svelte";
+import Profile from "./Profile.astro";
 import Tags from "./Tags.astro";
 import TOC from "./TOC.astro";
-import MusicPlayer from "./MusicPlayer.svelte";
 
 interface Props {
 	class?: string;
@@ -30,21 +30,34 @@ const componentMap = {
 };
 
 // 渲染组件的辅助函数
-function renderComponent(component: any, index: number, components: any[]) {
+function renderComponent(
+	component: unknown,
+	index: number,
+	_components: unknown[],
+) {
 	const ComponentToRender =
-		componentMap[component.type as keyof typeof componentMap];
+		componentMap[
+			(component as { type?: string }).type as keyof typeof componentMap
+		];
 	if (!ComponentToRender) return null;
 
-	const componentClass = widgetManager.getComponentClass(component, index);
-	const componentStyle = widgetManager.getComponentStyle(component, index);
+	const componentClass = widgetManager.getComponentClass(
+		component as { type?: string; order?: number; position?: string },
+		index,
+	);
+	const componentStyle = widgetManager.getComponentStyle(
+		component as { type?: string; order?: number; position?: string },
+		index,
+	);
 
 	return {
 		Component: ComponentToRender,
 		props: {
 			class: componentClass,
 			style: componentStyle,
-			headings: component.type === "toc" ? headings : undefined,
-			...component.customProps,
+			headings:
+				(component as { type?: string }).type === "toc" ? headings : undefined,
+			...(component as { customProps?: Record<string, unknown> }).customProps,
 		},
 	};
 }
