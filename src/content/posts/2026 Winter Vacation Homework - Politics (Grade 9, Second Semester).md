@@ -5,7 +5,7 @@ description: "《寒假作业政治填空九下》"
 tags: ["homework"]
 category: Homework
 draft: false
-author: "Doraemon"
+author: "Doraemon李金洲"
 pinned: false
 encrypted: true
 password: '29njcjzx'
