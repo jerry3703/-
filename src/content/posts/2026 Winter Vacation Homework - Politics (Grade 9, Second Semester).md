@@ -6,7 +6,7 @@ tags: ["homework"]
 category: Homework
 draft: false
 author: "Doraemon"
-pinned: true
+pinned: false
 encrypted: true
 password: '29njcjzx'
 ---
