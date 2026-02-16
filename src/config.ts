@@ -319,7 +319,9 @@ const commentConfig: CommentConfig = {
 		lang: "zh_CN",
 	},
 };
-
+export const shareConfig: ShareConfig = {
+	enable: true, // 启用分享功能
+};
 // ========================= 公告配置 =========================
 const announcementConfig: AnnouncementConfig = {
 	title: "你好呀",
