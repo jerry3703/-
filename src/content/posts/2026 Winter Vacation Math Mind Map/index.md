@@ -18,9 +18,9 @@ password: '29njcjzx'
 
 # 数学寒假作业思维导图
 
-![第一张](src\content\posts\2026 Winter Vacation Math Mind Map\1.jpeg)
-![第二张](src\content\posts\2026 Winter Vacation Math Mind Map\2.jpeg)
-![第三张](src\content\posts\2026 Winter Vacation Math Mind Map\3.jpeg)
-![第四张](src\content\posts\2026 Winter Vacation Math Mind Map\4.jpeg)
+![第一张](./1.jpeg)
+![第二张](./2.jpeg)
+![第三张](./3.jpeg)
+![第四张](./4.jpeg)
 
 **在此专门感谢提供此作业的黄子郬同学**
